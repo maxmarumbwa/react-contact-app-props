@@ -1,57 +1,20 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import contacts from "./contacts";
+import Avatar from "./Avatar";
+import Detail from "./Detail";
 
-function Card() {
+function Card(props) {
         return (
-                <div>
-                        <div>
-                                <div className="card">
-                                        <div className="top">
-                                                <h2>{contacts[0].name}</h2>
-                                                <img
-                                                        src={contacts[0].imgURL}
-                                                        alt="avatar_img"
-                                                />
-                                        </div>
-                                        <div className="bottom">
-                                                <p>{contacts[0].phone}</p>
-                                                <p>{contacts[0].email}</p>
-                                        </div>
-                                </div>
+                <div className="card">
+                        <div className="top">
+                                <h2 className="name">{props.name}</h2>
+                                <Avatar img={props.img} />
                         </div>
-
-                        <div>
-                                <div className="card">
-                                        <div className="top">
-                                                <h2>{contacts[1].name}</h2>
-                                                <img
-                                                        src={contacts[1].imgURL}
-                                                        alt="avatar_img"
-                                                />
-                                        </div>
-                                        <div className="bottom">
-                                                <p>{contacts[1].phone}</p>
-                                                <p>{contacts[1].email}</p>
-                                        </div>
-                                </div>
-                        </div>
-                        <div>
-                                <div className="card">
-                                        <div className="top">
-                                                <h2>{contacts[2].name}</h2>
-                                                <img
-                                                        src={contacts[2].imgURL}
-                                                        alt="avatar_img"
-                                                />
-                                        </div>
-                                        <div className="bottom">
-                                                <p>{contacts[2].phone}</p>
-                                                <p>{contacts[2].email}</p>
-                                        </div>
-                                </div>
+                        <div className="bottom">
+                                <Detail detailInfo={props.tel} />
+                                <Detail detailInfo={props.email} />
                         </div>
                 </div>
-        )
-};
+        );
+}
+
 export default Card;
